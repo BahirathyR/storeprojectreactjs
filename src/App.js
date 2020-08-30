@@ -1,25 +1,32 @@
 import React from 'react';
+import{Switch,Route} from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
+import StoreOwner from './components/StoreOwner';
+import EmployeeDetails from './components/EmployeeDetails';
+ import CustomerDetails from './components/CustomerDetails';
+import SupplierDetails from './components/SupplierDetails';
+import LandingPage from './components/LandingPage'
+import {Link} from 'react-router-dom';
+import Navbar from './components/Navbar'
+
+import LoginForm from './components/LoginForm'
+import New from './components/New'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+    <React.Fragment>
+     <Route exact path="/" component={LoginForm}/> 
+    <Route  path="/LandingPage" component={LandingPage}/>
+      <Route path="/StoreOwner" component={StoreOwner}/>
+      <Route path="/SupplierDetails" component={SupplierDetails}/>
+      <Route path="/EmployeeDetails" component={EmployeeDetails}/>
+      <Route path="/CustomerDetails" component={CustomerDetails}/> 
+     
+      </React.Fragment>   
+      
   );
 }
 
