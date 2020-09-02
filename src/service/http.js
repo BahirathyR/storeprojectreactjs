@@ -19,13 +19,12 @@ export const get = (apiUrl, data=null) =>{
    return axios(options)
     .then(function (response) {
       if(response.status !== 200){
-        console.log(response);
+        console.log(response,"response");
       }
       return response.data;
       })
-      .catch(function (error,res) {
-        console.error(error);
-        // res.redirect("/LoginForm")
+      .catch(function (error) {
+        console.log(error);
       
        return error
       });
@@ -46,11 +45,8 @@ export const post = (apiUrl, data) =>{
         return response.data;
       })
       .catch(function (error,res) {
-        console.error(error);
         console.log("error",error)
-        // alert("you are not Authorized person")
-        // res.redirect("/LoginForm")
-
+       
         return error
               });
 }

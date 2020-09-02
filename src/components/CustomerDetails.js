@@ -167,8 +167,17 @@ export default class CutomerDetails extends React.Component {
           console.log("data", data);
           const result = await service.addCustomer(data);
           console.log("resullttt", result);
-          alert("Successfully Addeded");
-                    window.location.reload();   
+          if(result.status==200){
+            alert("Successfully Addeded");
+         window.location.reload();
+         }
+         else{
+           alert("Not Successfully added");
+           window.location.reload();
+
+         }
+       
+         
         }}
        
         render={({ errors, touched, handleChange, userList, updateUser }) => (

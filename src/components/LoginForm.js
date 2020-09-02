@@ -12,7 +12,7 @@ const courseCategory = [
     label: "StoreOwner",
   },
   {
-    value: "Supplier",
+    value: "Sales",
     label: "Sales",
   },
   // {
@@ -84,6 +84,13 @@ export default class LoginForm extends React.Component {
               sessionStorage.setItem("token", result.token);
               history.push("/LandingPage");
             }
+            else if(result.status===202 && result.status===401){
+              {
+                alert("Authentication failed")
+                window.reload("");
+                history.push("LoginForm");
+              }
+            }
           } else if (fields.course === "Manager") {
             console.log("Loginemployee", fields);
             sessionStorage.setItem("usertype", fields.course);
@@ -97,9 +104,16 @@ export default class LoginForm extends React.Component {
               sessionStorage.setItem("token", result.token);
               history.push("/LandingPage");
             }
-          } else if (fields.course === "Supplier") {
+            else 
+              {
+                alert("Authentication failed")
+                window.location.reload();
+                history.push("");
+              }
+            
+          } else if (fields.course === "Sales") {
             sessionStorage.setItem("usertype", fields.course);
-            const result = await service.supplierLogin({
+            const result = await service.employeeLogin({
               email: fields.email,
               password: fields.password,
             });
@@ -107,6 +121,13 @@ export default class LoginForm extends React.Component {
             if (result.status === 200) {
               sessionStorage.setItem("token", result.token);
               history.push("/LandingPage");
+            }
+            else if(result.status===202 && result.status===401){
+              {
+                alert("Authentication failed")
+                window.location.reload();
+                history.push("");
+              }
             }
           }
         }}

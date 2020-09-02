@@ -176,9 +176,17 @@ class SupplierDetails extends React.Component {
           console.log("datasupplier", data);
           const result = await service.addSupplier(data);
           console.log("resullttt", result);
-          alert("Successfully Addeded");
-          window.location.reload();
-        }}
+          if(result.status==200){
+            alert("Successfully Addeded");
+         window.location.reload();
+         }
+         else{
+           alert("Not Successfully added");
+           window.location.reload();
+
+         }
+       
+       }}
         getItem={(id) => {
           const field = this.state.fields.find((item) => item.id === id);
           console.log("hello product", field);
@@ -197,7 +205,7 @@ class SupplierDetails extends React.Component {
                   style={{ marginLeft: "510px" }}
                   className="title"
                 >
-                  Supplier Details
+                  Suplier Details
                 </Typography>
                 <Button
                   type="reset"

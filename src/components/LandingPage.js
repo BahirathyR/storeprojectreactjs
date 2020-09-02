@@ -80,7 +80,7 @@ const LandingPage = () => {
                 href="/SupplierDetails"
                 onClick={onClick}
               >
-                Add Supplier
+                Add Suplier
               </button>)
 }
           {usertype==="Manager" &&
@@ -99,7 +99,7 @@ const LandingPage = () => {
             }
 
             
-{usertype==="Supplier" &&
+{usertype==="Sales" &&
           (
             <button
             type="button"
@@ -144,7 +144,7 @@ const LandingPage = () => {
             href="/SupplierDetails"
             onClick={onClick}
           >
-            Add Supplier
+            Add Suplier
           </button>
 )}
           {

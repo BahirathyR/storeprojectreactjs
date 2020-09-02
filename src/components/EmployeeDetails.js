@@ -16,8 +16,8 @@ import TextField from "@material-ui/core/TextField";
 import EditEmployee from "./EditEmployee";
 const courseCategory = [
   {
-    value: "StoreManager",
-    label: "StoreManager",
+    value: "Manager",
+    label: "Manager",
   },
   {
     value: "Supervisor",
@@ -214,8 +214,16 @@ class EmployeeDetails extends React.Component {
           console.log("data", data);
           const result = await service.addEmployee(data);
           console.log("resullttt", result);
-          alert("Successfully Addeded");
+          if(result.status==200){
+             alert("Successfully Addeded");
           window.location.reload();
+          }
+          else{
+            alert("Not Successfully added");
+            window.location.reload();
+
+          }
+        
         }}
 
         render={({ errors, touched, values, handleChange }) => (

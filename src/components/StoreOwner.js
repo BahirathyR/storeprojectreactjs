@@ -188,10 +188,17 @@ class StoreOwner extends React.Component {
           };
           console.log("data", data);
           const result = await service.addStore(data);
-    
-          // alert("Successfully Addeded");
-          // window.location.reload();
-        }}
+          if(result.status==200){
+            alert("Successfully Addeded");
+         window.location.reload();
+         }
+         else{
+           alert("Not Successfully added");
+           window.location.reload();
+
+         }
+       
+            }}
         render={({
           errors,
           status,

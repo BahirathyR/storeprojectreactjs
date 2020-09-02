@@ -33,8 +33,8 @@ import TextField from "@material-ui/core/TextField";
 
 const courseCategory = [
     {
-      value: "StoreManager",
-      label: "StoreManager"
+      value: "Manager",
+      label: "Manager"
     },
     {
       value: "Supervisor",
